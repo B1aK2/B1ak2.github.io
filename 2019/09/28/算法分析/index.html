@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="1 排序算法1.1 冒泡排序1234567891011121314151617var array []intvar temp int// 升序排列// 外层循环只用执行数组长度-1次for i := 0; i &amp;lt; len(array) - 1; i++ &amp;#123;	// 内层循环执行数组长度">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="算法分析">
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="B1aK2&#39;s Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary">
+    
+
+    <!-- Title -->
+    
+    <title>算法分析 - B1aK2&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    主页
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    归档
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    分类
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2019/09/28/算法分析/">
+                算法分析
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2019-09-28</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h1 id="1-排序算法"><a href="#1-排序算法" class="headerlink" title="1 排序算法"></a>1 排序算法</h1><h2 id="1-1-冒泡排序"><a href="#1-1-冒泡排序" class="headerlink" title="1.1 冒泡排序"></a>1.1 冒泡排序</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array []<span class="keyword">int</span></span><br><span class="line"><span class="keyword">var</span> temp <span class="keyword">int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 升序排列</span></span><br><span class="line"><span class="comment">// 外层循环只用执行数组长度-1次</span></span><br><span class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(array) - <span class="number">1</span>; i++ &#123;</span><br><span class="line">	<span class="comment">// 内层循环执行数组长度-1-（外层循环次数）次</span></span><br><span class="line">	<span class="keyword">for</span> j := <span class="number">0</span>; j &lt; <span class="built_in">len</span>(array) - i - <span class="number">1</span>; j++ &#123;</span><br><span class="line">		<span class="comment">// 如果前一个前一个元素大于后一个元素</span></span><br><span class="line">		<span class="comment">// 两元素进行交换</span></span><br><span class="line">		<span class="keyword">if</span> array[j] &gt; array[j + <span class="number">1</span>] &#123;</span><br><span class="line">			temp = array[j]</span><br><span class="line">			array[j] = array[j + <span class="number">1</span>]</span><br><span class="line">			array[j + <span class="number">1</span>] = temp</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-选择排序"><a href="#2-2-选择排序" class="headerlink" title="2.2 选择排序"></a>2.2 选择排序</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array []<span class="keyword">int</span></span><br><span class="line"><span class="keyword">var</span> min,temp <span class="keyword">int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 升序排列</span></span><br><span class="line"><span class="comment">// 外层循环同样只用执行数组长度-1次</span></span><br><span class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(array) - <span class="number">1</span>; i++ &#123;</span><br><span class="line">	<span class="comment">// 假定当前元素最小</span></span><br><span class="line">	min = i</span><br><span class="line">	<span class="comment">// 内层循环从i+1开始，到最后一个元素</span></span><br><span class="line">	<span class="keyword">for</span> j := i+<span class="number">1</span>; j &lt; <span class="built_in">len</span>(array); j++ &#123;</span><br><span class="line">		<span class="comment">// 有元素比假定的最小元素小，则更改假定元素为该元素</span></span><br><span class="line">		<span class="keyword">if</span> array[min] &gt; array[j] &#123;</span><br><span class="line">			min = j</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 如果完成一次循环后，得出的最小元素位置和最开始不同</span></span><br><span class="line">	<span class="comment">// 交换两位置的元素</span></span><br><span class="line">	<span class="keyword">if</span> min != i &#123;</span><br><span class="line">		temp = array[i]</span><br><span class="line">		array[i] = array[min]</span><br><span class="line">		array[min] = temp</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-递归算法"><a href="#2-递归算法" class="headerlink" title="2 递归算法"></a>2 递归算法</h1><h2 id="2-1-斐波拉切数列非递归算法的实现"><a href="#2-1-斐波拉切数列非递归算法的实现" class="headerlink" title="2.1 斐波拉切数列非递归算法的实现"></a>2.1 斐波拉切数列非递归算法的实现</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">function</span><span class="params">(n <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 判断是否为第0或第1个元素，是的话返回固定值</span></span><br><span class="line">	<span class="keyword">if</span> n == <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> n == <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 定义用到的an,an-1,an-2，其中an-1与an-2赋上初值0,1</span></span><br><span class="line">	<span class="keyword">var</span> numN <span class="keyword">int</span></span><br><span class="line">	<span class="keyword">var</span> numN_1, numN_2 <span class="keyword">int</span> = <span class="number">1</span>, <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 计算第n个斐波拉切数（n &gt;= 2）需要运算n-1次</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; n<span class="number">-1</span>; i++ &#123;</span><br><span class="line">		<span class="comment">// 这一次的an计算出来后</span></span><br><span class="line">		<span class="comment">// 将an-1与an-2调整为下一次的an-1与an-2</span></span><br><span class="line">		numN = numN_1 + numN_2</span><br><span class="line">		numN_2 = numN_1</span><br><span class="line">		numN_1 = numN</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> numN</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    这个主题由<a href="https://github.com/klugjo">Jonathan Klughertz</a>开发.源代码也发布在了Github上.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2019/09/28/算法分析/">算法分析</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2019/07/01/编程风格-好代码的逻辑/">编程风格-好代码的逻辑</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2019/05/30/Go语言笔记/">go语言笔记</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2019/05/06/导航栏使用测试/">导航栏使用测试</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/博客简介/">博客简介</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/语言学习/">语言学习</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/klugjo/hexo-theme-alpha-dust">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:test@example.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
