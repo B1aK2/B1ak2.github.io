@@ -1524,6 +1524,26 @@
 <li><p>测试单个方法<br>&emsp;&ensp;<code>go test -v -test.run TestAddUpper</code></p>
 </li>
 </ol>
+<h1 id="第16章-goroutine（协程）和channel（管道）"><a href="#第16章-goroutine（协程）和channel（管道）" class="headerlink" title="第16章 goroutine（协程）和channel（管道）"></a>第16章 goroutine（协程）和channel（管道）</h1><h2 id="16-1-goroutine-看一个需求"><a href="#16-1-goroutine-看一个需求" class="headerlink" title="16.1 goroutine-看一个需求"></a>16.1 goroutine-看一个需求</h2><ul>
+<li>需求：要求统计1-9000000000的数字中，哪些是素数</li>
+</ul>
+<h2 id="16-2-goroutine-基本介绍"><a href="#16-2-goroutine-基本介绍" class="headerlink" title="16.2 goroutine-基本介绍"></a>16.2 goroutine-基本介绍</h2><h3 id="16-2-1-进程和线程说明"><a href="#16-2-1-进程和线程说明" class="headerlink" title="16.2.1 进程和线程说明"></a>16.2.1 进程和线程说明</h3><ol>
+<li><p>进程就是程序在操作系统中的一次执行过程，是系统进行资源分配和调度的基本单位</p>
+</li>
+<li><p>线程是进程的一个执行实例，是程序执行的最小单位，它是比进程更小的能独立运行的基本单位</p>
+</li>
+<li><p>一个进程可以创建和销毁多个线程，同一个进程中的多个线程可以并发执行。</p>
+</li>
+<li><p>一个程序至少有一个进程，一个进程至少有一个线程</p>
+</li>
+</ol>
+<h3 id="16-2-2-并发和并行"><a href="#16-2-2-并发和并行" class="headerlink" title="16.2.2 并发和并行"></a>16.2.2 并发和并行</h3><ol>
+<li><p>多线程程序在单核上运行，就是并发</p>
+</li>
+<li><p>多线程程序在多核上运行，就是并行</p>
+</li>
+</ol>
+<p>并发：因为是在一个CPU上，比如有10个线程，每个线程执行10毫秒（进行轮询操作），从人的角度看，好像这个10个线程都在运行，但是从微观上看，在某一时间点看，其实只有一个线程在执行，</p>
 
     </div>
 
