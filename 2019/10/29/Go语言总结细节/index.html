@@ -10,6 +10,9 @@
 
     <!--Description-->
     
+        <meta name="description" content="1 channel相关细节1.1 channel传递的是值还是地址？
+19.10.29：  今天在写Golang练习的时候遇到了需要使用channel传递大量值的情况，出于开销问题考虑，就想着channel传递过去的到底是数据的地址，还是数据的值。出于效率考虑，当然猜测Go语言作者设计通道传递的数据">
+    
 
     <!--Author-->
     
@@ -18,7 +21,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="B1aK2&#39;s Blog">
+        <meta property="og:title" content="Go语言总结细节">
     
 
     <!--Open Graph Description-->
@@ -29,7 +32,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     
 
     <!--Page Cover-->
@@ -40,7 +43,7 @@
 
     <!-- Title -->
     
-    <title>语言学习 - B1aK2&#39;s Blog</title>
+    <title>Go语言总结细节 - B1aK2&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -109,9 +112,7 @@
 <div class="container">
 
     <!-- Main Content -->
-    
-
-<div class="row">
+    <div class="row">
     <div class="col-sm-12">
 
         <!--Title and Logo-->
@@ -119,43 +120,64 @@
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
-            <h1 id="main-title" class="title">语言学习</h1>
-        
     </div>
 </header>
 
-        <section class="main archive-container">
+        <section class="main">
             
-                <div class="archive-post">
-    <a href="/2019/04/25/Markdown语法/">
-        <span class="archive-date">
-            Apr 2019
-        </span>
-        二 Markdown语法笔记
-    </a>
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2019/10/29/Go语言总结细节/">
+                Go语言总结细节
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2019-10-29</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <a id="more"></a>
+<h1 id="1-channel相关细节"><a href="#1-channel相关细节" class="headerlink" title="1 channel相关细节"></a>1 channel相关细节</h1><h2 id="1-1-channel传递的是值还是地址？"><a href="#1-1-channel传递的是值还是地址？" class="headerlink" title="1.1 channel传递的是值还是地址？"></a>1.1 channel传递的是值还是地址？</h2><ul>
+<li><p>19.10.29：<br>  今天在写Golang练习的时候遇到了需要使用channel传递大量值的情况，出于开销问题考虑，就想着channel传递过去的到底是数据的地址，还是数据的值。出于效率考虑，当然猜测Go语言作者设计通道传递的数据的地址。</p>
+</li>
+<li><p>所以进行着下面的试验：</p>
+  <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	sliceChan := <span class="built_in">make</span>(<span class="keyword">chan</span> []<span class="keyword">int</span>, <span class="number">2</span>)</span><br><span class="line">	newSlice := <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">	newSlice[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">	sliceChan &lt;- newSlice</span><br><span class="line">	<span class="comment">// 关闭通道</span></span><br><span class="line">	<span class="built_in">close</span>(sliceChan)</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">"手动修改前slice[0]="</span>, newSlice)</span><br><span class="line">	fmt.Println(<span class="string">"手动将slice[0]的值修改为11"</span>)</span><br><span class="line">	newSlice[<span class="number">0</span>] = <span class="number">11</span></span><br><span class="line"></span><br><span class="line">	slice1 := &lt;-sliceChan</span><br><span class="line">	fmt.Println(<span class="string">"手动修改后slice[0]="</span>, slice1)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  输出：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">手动修改前slice[0]= [0]</span><br><span class="line">手动将slice[0]的值修改为11</span><br><span class="line">手动修改后slice[0]= [11]</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>不难看出，在将变量<code>newSlice</code>传入通道后，在对变量的值进行修改。如果通道是值传递的话，接收的数据应该没有印象，而输出的数据是修改后的数据。</p>
+<p>故在此得出结论，变量传递进行的是地址传递。</p>
+
+    </div>
+
+    
+
+    
+
+    <!-- Comments -->
+    
+
 </div>
-            
-                <div class="archive-post">
-    <a href="/2019/04/28/C++语法笔记/">
-        <span class="archive-date">
-            Apr 2019
-        </span>
-        三 C++语法笔记
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2019/07/01/编程风格-好代码的逻辑/">
-        <span class="archive-date">
-            Jul 2019
-        </span>
-        编程风格-好代码的逻辑
-    </a>
-</div>
-            
         </section>
+
     </div>
 </div>
+
 
 </div>
 
