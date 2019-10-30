@@ -162,6 +162,18 @@
 </ul>
 <p>不难看出，在将变量<code>newSlice</code>传入通道后，在对变量的值进行修改。如果通道是值传递的话，接收的数据应该没有印象，而输出的数据是修改后的数据。</p>
 <p>故在此得出结论，变量传递进行的是地址传递。</p>
+<h1 id="反射相关细节"><a href="#反射相关细节" class="headerlink" title="反射相关细节"></a>反射相关细节</h1><h2 id="1-1-SetXxx-方法报错原因"><a href="#1-1-SetXxx-方法报错原因" class="headerlink" title="1.1 SetXxx()方法报错原因"></a>1.1 SetXxx()方法报错原因</h2><p><a href="https://zhuanlan.zhihu.com/p/33626720" target="_blank" rel="noopener">参考文章</a></p>
+<ul>
+<li><p>19.10.30：<br>  今天在学习Golang反射机制的时候，有如下代码：</p>
+  <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"reflect"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> str <span class="keyword">string</span> = <span class="string">"tom"</span> <span class="comment">// ok</span></span><br><span class="line"></span><br><span class="line">	fs := reflect.ValueOf(str) <span class="comment">// ok fs-&gt;string</span></span><br><span class="line">	fmt.Printf(<span class="string">"%v\n"</span>, fs.Kind())</span><br><span class="line">	fs.Elem().SetString(<span class="string">"jack"</span>) <span class="comment">// error</span></span><br><span class="line">	fmt.Printf(<span class="string">"%v\n"</span>, str)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line"><span class="keyword">string</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line"><span class="built_in">panic</span>: reflect: reflect.Value.SetString using unaddressable value</span><br></pre></td></tr></table></figure>
+
+<p>  这里是<code>func (Value) SetString</code>方法的官方文档。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func (Value) SetString</span><br><span class="line">  func (v Value) SetString(x string)</span><br><span class="line">  设置v的持有值。如果v的Kind不是string或者v.CanSet()返回假，会panic。</span><br></pre></td></tr></table></figure>
+
+<p>  看了官方文档之后就很疑惑，我这里<code>fs</code>的<code>kind</code>是<code>string</code>，但是为什么还会报错。原来是自己忽略了或后面的话 <strong>或者v.CanSet()返回假</strong></p>
+<p>  根据函数定义，可以简单的知道，这里<code>reflect.VlueOf()</code>方法进行的是值传递，而不是地址传递。值传递的变量是不能设置的故这里无法对<code>fs</code>进行设置。<br>  <code>fs</code>的<code>kind</code>自然是<code>string</code>，但由于<code>fs</code>进行的是值传递，故在<code>v.CanSet()</code>的返回值为<code>false</code>，无法设置，进而报<code>panic</code></p>
+</li>
+</ul>
 
     </div>
 
