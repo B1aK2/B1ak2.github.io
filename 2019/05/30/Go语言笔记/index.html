@@ -1,152 +1,447 @@
 <!DOCTYPE html>
-<html lang="en">
 
-<!-- Head tag -->
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!--Description-->
-    
-        <meta name="description" content="3 变量3.12 字符串类型：string">
-    
 
-    <!--Author-->
-    
-        <meta name="author" content="B1aK2">
-    
 
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="go语言笔记">
-    
 
-    <!--Open Graph Description-->
-    
 
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content>
 
-    <!--Type page-->
-    
-        <meta property="og:type" content="article">
-    
 
-    <!--Page Cover-->
-    
 
-    <meta name="twitter:card" content="summary">
-    
 
-    <!-- Title -->
-    
-    <title>go语言笔记 - </title>
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
 
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/style.css">
 
-    <!-- Google Analytics -->
-    
 
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16.jpg?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="3 变量3.12 字符串类型：string">
+<meta property="og:type" content="article">
+<meta property="og:title" content="go语言笔记">
+<meta property="og:url" content="http://yoursite.com/2019/05/30/Go语言笔记/index.html">
+<meta property="og:site_name" content="B1aK2&#39;Blog">
+<meta property="og:description" content="3 变量3.12 字符串类型：string">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/28/K67DOJ.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/28/K6bJP0.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/28/K6qAL4.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/28/K6LVc8.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/28/KcFMss.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/28/KgZvhq.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/28/Kg1Z6I.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/28/Kg1nnP.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/28/Kg1K78.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/28/Kg1ltg.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/28/Kg18pj.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/29/K22SLq.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/29/KfV8oQ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/29/KfnY7T.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/29/KfJlI1.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/30/KhrUk8.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/30/Kh6MfU.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/30/Kh636J.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/06/MPiurR.png">
+<meta property="og:updated_time" content="2019-11-06T06:03:58.934Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="go语言笔记">
+<meta name="twitter:description" content="3 变量3.12 字符串类型：string">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/10/28/K67DOJ.md.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/05/30/Go语言笔记/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>go语言笔记 | B1aK2'Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-<body>
+  
+  
+    
+  
 
-<div class="bg-gradient"></div>
-<div class="bg-pattern"></div>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
 
-<!-- Menu -->
-<!--Menu Links and Overlay-->
-<div class="menu-bg">
-    <div class="menu-container">
-        <ul>
-            
-            <li class="menu-item">
-                <a href="/">
-                    主页
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/archives">
-                    归档
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/categories">
-                    分类
-                </a>
-            </li>
-            
-        </ul>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">B1aK2'Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
-<!--Hamburger Icon-->
-<nav>
-    <a href="#menu"></a>
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">2</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">9</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
 </nav>
 
-<div class="container">
 
-    <!-- Main Content -->
-    <div class="row">
-    <div class="col-sm-12">
 
-        <!--Title and Logo-->
-        <header>
-    <div class="logo">
-        <a href="/"><i class="logo-icon fa " aria-hidden="true"></i></a>
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/30/Go语言笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="B1aK2">
+      <meta itemprop="description" content="Wonderful Everyday Down the Rabbit-Hole">
+      <meta itemprop="image" content="/images/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="B1aK2'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-    </div>
-</header>
+        
+          <h1 class="post-title" itemprop="name headline">go语言笔记
 
-        <section class="main">
+              
             
-<div class="post">
+          </h1>
+        
 
-    <div class="post-header">
-        <h1 class="title">
-            <a href="/2019/05/30/Go语言笔记/">
-                go语言笔记
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2019-05-30</span>
+        <div class="post-meta">
+          <span class="post-time">
+
             
             
             
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-30 16:28:45" itemprop="dateCreated datePublished" datetime="2019-05-30T16:28:45+08:00">2019-05-30</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-11-06 14:03:58" itemprop="dateModified" datetime="2019-11-06T14:03:58+08:00">2019-11-06</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/语言学习/" itemprop="url" rel="index"><span itemprop="name">语言学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
-    </div>
+      </header>
+    
 
-    <div class="content">
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
-        <!-- Gallery -->
-        
+      
+      
 
-        <!-- Post Content -->
+      
         <h1 id="3-变量"><a href="#3-变量" class="headerlink" title="3 变量"></a>3 变量</h1><h2 id="3-12-字符串类型：string"><a href="#3-12-字符串类型：string" class="headerlink" title="3.12 字符串类型：string"></a>3.12 字符串类型：string</h2><a id="more"></a>
 <ol>
 <li><p>Go语言的字符串的字节使用UTF-8编码表示Unicode文本，这样Golang统一使用UTF-8编码，中文乱码问题不会困扰程序员</p>
@@ -1942,158 +2237,406 @@
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> user <span class="keyword">struct</span> &#123;</span><br><span class="line">	UserId <span class="keyword">string</span></span><br><span class="line">	Name   <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 文件命名 xxx_test.go</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestReflectStruct</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> (</span><br><span class="line">		model *user</span><br><span class="line">		sv reflect.Value</span><br><span class="line">	)</span><br><span class="line">	model = &amp;user&#123;&#125;</span><br><span class="line">	sv = reflect.ValueOf(model)</span><br><span class="line">	t.Log(<span class="string">"reflect.ValueOf"</span>, sv.Kind().String())</span><br><span class="line">	sv = sv.Elem()</span><br><span class="line">	t.Log(<span class="string">"reflect.ValueOf.Elm"</span>, sv.Kind().String())</span><br><span class="line">	sv.FieldByName(<span class="string">"UserId"</span>).SetString(<span class="string">"12345678"</span>)</span><br><span class="line">	sv.FieldByName(<span class="string">"Name"</span>).SetString(<span class="string">"nickname"</span>)</span><br><span class="line">	t.Log(<span class="string">"model"</span>, model)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用反射创建并操作结构体：【了解】</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test_02</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"reflect"</span></span><br><span class="line">	<span class="string">"testing"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> user <span class="keyword">struct</span> &#123;</span><br><span class="line">	UserId <span class="keyword">string</span></span><br><span class="line">	Name   <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestReflectStructPtr</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> (</span><br><span class="line">		model *user</span><br><span class="line">		st    reflect.Type</span><br><span class="line">		elem  reflect.Value</span><br><span class="line">	)</span><br><span class="line"></span><br><span class="line">	st = reflect.TypeOf(model)                       </span><br><span class="line">	<span class="comment">// 获取类型*user</span></span><br><span class="line">	t.Log(<span class="string">"reflect.TypeOf"</span>, st.Kind().String())      </span><br><span class="line">	<span class="comment">// ptr</span></span><br><span class="line">	st = st.Elem()                                  </span><br><span class="line">	<span class="comment">// st指向的类型</span></span><br><span class="line">	t.Log(<span class="string">"reflect.TypeOf.Elem"</span>, st.Kind().String()) </span><br><span class="line">	<span class="comment">// struct</span></span><br><span class="line"></span><br><span class="line">	elem = reflect.New(st)</span><br><span class="line">	<span class="comment">// New返回一个value类型值，该值持有一个指向类型为type的新申请的零值指针</span></span><br><span class="line">	t.Log(<span class="string">"reflect.New"</span>, elem.Kind().String())             <span class="comment">// ptr</span></span><br><span class="line">	t.Log(<span class="string">"reflect.New.Elem"</span>, elem.Elem().Kind().String()) <span class="comment">// struct</span></span><br><span class="line">	<span class="comment">// model 就是创建的user结构体变量（实例）</span></span><br><span class="line"></span><br><span class="line">	model = elem.Interface().(*user)                 </span><br><span class="line">	<span class="comment">// model是*user它的指向和elem是一样的</span></span><br><span class="line">	elem = elem.Elem()                               </span><br><span class="line">	<span class="comment">// 取得elem指向的值</span></span><br><span class="line">	elem.FieldByName(<span class="string">"UserId"</span>).SetString(<span class="string">"12345678"</span>) </span><br><span class="line">	<span class="comment">// 赋值</span></span><br><span class="line">	elem.FieldByName(<span class="string">"Name"</span>).SetString(<span class="string">"nickname"</span>)</span><br><span class="line">	t.Log(<span class="string">"model model.Name"</span>, model, model.Name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line">=== RUN   TestReflectStructPtr</span><br><span class="line">--- PASS: TestReflectStructPtr (<span class="number">0.00s</span>)</span><br><span class="line">    model_test.<span class="keyword">go</span>:<span class="number">21</span>: reflect.TypeOf ptr</span><br><span class="line">    model_test.<span class="keyword">go</span>:<span class="number">23</span>: reflect.TypeOf.Elem <span class="keyword">struct</span></span><br><span class="line">    model_test.<span class="keyword">go</span>:<span class="number">26</span>: reflect.New ptr</span><br><span class="line">    model_test.<span class="keyword">go</span>:<span class="number">27</span>: reflect.New.Elem <span class="keyword">struct</span></span><br><span class="line">    model_test.<span class="keyword">go</span>:<span class="number">33</span>: model model.Name &amp;&#123;<span class="number">12345678</span> nickname&#125; nickname</span><br><span class="line">PASS</span><br><span class="line">ok      command-line-arguments  <span class="number">0.428s</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test_02</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"reflect"</span></span><br><span class="line">	<span class="string">"testing"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> user <span class="keyword">struct</span> &#123;</span><br><span class="line">	UserId <span class="keyword">string</span></span><br><span class="line">	Name   <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestReflectStructPtr</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> (</span><br><span class="line">		model *user</span><br><span class="line">		st    reflect.Type</span><br><span class="line">		elem  reflect.Value</span><br><span class="line">	)</span><br><span class="line"></span><br><span class="line">	st = reflect.TypeOf(model)                       </span><br><span class="line">	<span class="comment">// 获取类型*user</span></span><br><span class="line">	t.Log(<span class="string">"reflect.TypeOf"</span>, st.Kind().String())      </span><br><span class="line">	<span class="comment">// ptr</span></span><br><span class="line">	st = st.Elem()                                  </span><br><span class="line">	<span class="comment">// st指向的类型</span></span><br><span class="line">	t.Log(<span class="string">"reflect.TypeOf.Elem"</span>, st.Kind().String()) </span><br><span class="line">	<span class="comment">// struct</span></span><br><span class="line"></span><br><span class="line">	elem = reflect.New(st)</span><br><span class="line">	<span class="comment">// New返回一个value类型值，该值持有一个指向类型为type的新申请的零值指针</span></span><br><span class="line">	t.Log(<span class="string">"reflect.New"</span>, elem.Kind().String())             <span class="comment">// ptr</span></span><br><span class="line">	t.Log(<span class="string">"reflect.New.Elem"</span>, elem.Elem().Kind().String()) <span class="comment">// struct</span></span><br><span class="line">	<span class="comment">// model 就是创建的user结构体变量（实例）</span></span><br><span class="line"></span><br><span class="line">	model = elem.Interface().(*user)                 </span><br><span class="line">	<span class="comment">// model是*user它的指向和elem是一样的</span></span><br><span class="line">	elem = elem.Elem()                               </span><br><span class="line">	<span class="comment">// 取得elem指向的值</span></span><br><span class="line">	elem.FieldByName(<span class="string">"UserId"</span>).SetString(<span class="string">"12345678"</span>) </span><br><span class="line">	<span class="comment">// 赋值</span></span><br><span class="line">	elem.FieldByName(<span class="string">"Name"</span>).SetString(<span class="string">"nickname"</span>)</span><br><span class="line">	t.Log(<span class="string">"model model.Name"</span>, model, model.Name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line">=== RUN   TestReflectStructPtr</span><br><span class="line">--- PASS: TestReflectStructPtr (<span class="number">0.00s</span>)</span><br><span class="line">    model_test.<span class="keyword">go</span>:<span class="number">21</span>: reflect.TypeOf ptr</span><br><span class="line">    model_test.<span class="keyword">go</span>:<span class="number">23</span>: reflect.TypeOf.Elem <span class="keyword">struct</span></span><br><span class="line">    model_test.<span class="keyword">go</span>:<span class="number">26</span>: reflect.New ptr</span><br><span class="line">    model_test.<span class="keyword">go</span>:<span class="number">27</span>: reflect.New.Elem <span class="keyword">struct</span></span><br><span class="line">    model_test.<span class="keyword">go</span>:<span class="number">33</span>: model model.Name &amp;&#123;<span class="number">12345678</span> nickname&#125; nickname</span><br><span class="line">PASS</span><br><span class="line">ok      command-line-arguments  <span class="number">0.428s</span></span><br></pre></td></tr></table></figure>
+
+</li>
 </ol>
+<h1 id="第18章-TCP编程"><a href="#第18章-TCP编程" class="headerlink" title="第18章 TCP编程"></a>第18章 TCP编程</h1><ul>
+<li>网络编程分为两种<ol>
+<li>TCP socket编程</li>
+<li>b/s结构的http编程</li>
+</ol>
+</li>
+<li>OSI与TCP/IP参考模型 *****
+  <img src="https://s2.ax1x.com/2019/11/06/MPiurR.png" alt="MPiurR.png"></li>
+</ul>
 
+      
     </div>
 
     
 
     
-
-    <!-- Comments -->
+    
     
 
-</div>
-        </section>
+    
 
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/06/导航栏使用测试/" rel="next" title="导航栏使用测试">
+                <i class="fa fa-chevron-left"></i> 导航栏使用测试
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/01/编程风格-好代码的逻辑/" rel="prev" title="编程风格-好代码的逻辑">
+                编程风格-好代码的逻辑 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-</div>
+  </div>
 
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
 
-</div>
+      
 
-<!-- Footer -->
-<div class="push"></div>
-
-<footer class="footer-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
-                <h2>About</h2>
-                <p>
-                    这个主题由<a href="https://github.com/klugjo">Jonathan Klughertz</a>开发.源代码也发布在了Github上.
-                </p>
-            </div>
-            
-    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
-        <h2>Recent Posts</h2>
-        <ul>
-            
-            <li>
-                <a class="footer-post" href="/2019/11/04/代码审计/">代码审计</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/10/29/Go语言总结细节/">Go语言总结细节</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/09/28/算法分析/">算法分析</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/07/01/编程风格-好代码的逻辑/">编程风格-好代码的逻辑</a>
-            </li>
-            
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
         </ul>
-    </div>
+      
 
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/author.jpg" alt="B1aK2">
+            
+              <p class="site-author-name" itemprop="name">B1aK2</p>
+              <div class="site-description motion-element" itemprop="description">Wonderful Everyday Down the Rabbit-Hole</div>
+          </div>
 
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/yourname" title="GitHub &rarr; https://github.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
 
             
-<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
-    <h2>Categories</h2>
-    <ul>
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#3-变量"><span class="nav-number">1.</span> <span class="nav-text">3 变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-12-字符串类型：string"><span class="nav-number">1.1.</span> <span class="nav-text">3.12 字符串类型：string</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-13-基本数据类型默认值"><span class="nav-number">1.2.</span> <span class="nav-text">3.13 基本数据类型默认值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-13-1-基本介绍"><span class="nav-number">1.2.1.</span> <span class="nav-text">3.13.1 基本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-13-2-基本类型的默认值如下"><span class="nav-number">1.2.2.</span> <span class="nav-text">3.13.2 基本类型的默认值如下</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-14-基本数据类型的相互转换"><span class="nav-number">1.3.</span> <span class="nav-text">3.14 基本数据类型的相互转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-14-1-基本介绍"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.14.1 基本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-14-2-基本语法"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.14.2 基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-14-3-案例演示"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.14.3 案例演示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-14-4-基本数据类型相互转换的注意事项"><span class="nav-number">1.3.4.</span> <span class="nav-text">3.14.4 基本数据类型相互转换的注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-14-5-练习题"><span class="nav-number">1.3.5.</span> <span class="nav-text">3.14.5 练习题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-15-基本数据类型和string的转换"><span class="nav-number">1.4.</span> <span class="nav-text">3.15 基本数据类型和string的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-15-1-基本介绍"><span class="nav-number">1.4.1.</span> <span class="nav-text">3.15.1 基本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-15-2-基本数据类型转string类型"><span class="nav-number">1.4.2.</span> <span class="nav-text">3.15.2 基本数据类型转string类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-15-3-string类转换基本数据类型"><span class="nav-number">1.4.3.</span> <span class="nav-text">3.15.3 string类转换基本数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-15-4-string转基本数据类型的注意事项"><span class="nav-number">1.4.4.</span> <span class="nav-text">3.15.4 string转基本数据类型的注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-16-指针"><span class="nav-number">1.5.</span> <span class="nav-text">3.16 指针</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-16-1-基本介绍"><span class="nav-number">1.5.1.</span> <span class="nav-text">3.16.1 基本介绍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-17-值类型和引用类型"><span class="nav-number">1.6.</span> <span class="nav-text">3.17 值类型和引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-17-1-常见的值类型和引用类型"><span class="nav-number">1.6.1.</span> <span class="nav-text">3.17.1 常见的值类型和引用类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-17-2-值类型和引用类型的特点"><span class="nav-number">1.6.2.</span> <span class="nav-text">3.17.2 值类型和引用类型的特点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-18-标识符的命名规范"><span class="nav-number">1.7.</span> <span class="nav-text">3.18 标识符的命名规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-18-1-标识符概念"><span class="nav-number">1.7.1.</span> <span class="nav-text">3.18.1 标识符概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-18-2-标识符的命名规则（重要）"><span class="nav-number">1.7.2.</span> <span class="nav-text">3.18.2 标识符的命名规则（重要）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-18-3-标识符命名注意事项"><span class="nav-number">1.7.3.</span> <span class="nav-text">3.18.3 标识符命名注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-20-常量"><span class="nav-number">1.7.4.</span> <span class="nav-text">3.20 常量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-运算符"><span class="nav-number">2.</span> <span class="nav-text">4 运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-运算符的基本介绍"><span class="nav-number">2.1.</span> <span class="nav-text">4.1 运算符的基本介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-算数运算符"><span class="nav-number">2.2.</span> <span class="nav-text">4.2 算数运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-3-算数运算符使用细节"><span class="nav-number">2.2.1.</span> <span class="nav-text">4.2.3 算数运算符使用细节</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-9-运算符的优先级"><span class="nav-number">2.3.</span> <span class="nav-text">4.9 运算符的优先级</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-9-1-运算符优先级一览表"><span class="nav-number">2.3.1.</span> <span class="nav-text">4.9.1 运算符优先级一览表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-9-2-总结："><span class="nav-number">2.3.2.</span> <span class="nav-text">4.9.2 总结：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-12-位运算"><span class="nav-number">2.4.</span> <span class="nav-text">4.12 位运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-12-2-原码、反码、补码"><span class="nav-number">2.4.1.</span> <span class="nav-text">4.12.2 原码、反码、补码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-12-3-移位运算"><span class="nav-number">2.4.2.</span> <span class="nav-text">4.12.3 移位运算</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-程序流程"><span class="nav-number">3.</span> <span class="nav-text">5 程序流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-3-单分支的细节说明"><span class="nav-number">3.0.1.</span> <span class="nav-text">5.3.3 单分支的细节说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-4-多分支的细节说明"><span class="nav-number">3.0.2.</span> <span class="nav-text">5.3.4 多分支的细节说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-4-switch分支控制"><span class="nav-number">3.1.</span> <span class="nav-text">5.4 switch分支控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-1-基本的介绍"><span class="nav-number">3.1.1.</span> <span class="nav-text">5.4.1 基本的介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-2-基本语法"><span class="nav-number">3.1.2.</span> <span class="nav-text">5.4.2 基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-3-总结"><span class="nav-number">3.1.3.</span> <span class="nav-text">5.4.3 总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-5-for循环"><span class="nav-number">3.2.</span> <span class="nav-text">5.5 for循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-字符串遍历方式"><span class="nav-number">3.2.1.</span> <span class="nav-text">5. 字符串遍历方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-6-while和do……while的实现"><span class="nav-number">3.3.</span> <span class="nav-text">5.6 while和do……while的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-1-for循环实现while的效果"><span class="nav-number">3.3.1.</span> <span class="nav-text">5.6.1 for循环实现while的效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-2-for循环实现do……while循环"><span class="nav-number">3.3.2.</span> <span class="nav-text">5.6.2 for循环实现do……while循环</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-8-跳转控制语句-break"><span class="nav-number">3.4.</span> <span class="nav-text">5.8 跳转控制语句-break</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-8-1-看一个具体需求，引出break"><span class="nav-number">3.4.1.</span> <span class="nav-text">5.8.1 看一个具体需求，引出break</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-8-6-break的注意事项和使用细节"><span class="nav-number">3.4.2.</span> <span class="nav-text">5.8.6 break的注意事项和使用细节</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-函数"><span class="nav-number">3.5.</span> <span class="nav-text">6 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-函数注意事项"><span class="nav-number">3.5.1.</span> <span class="nav-text">6.1 函数注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-16-init函数"><span class="nav-number">3.6.</span> <span class="nav-text">6.16 init函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-16-1-函数说明"><span class="nav-number">3.6.1.</span> <span class="nav-text">6.16.1 函数说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-16-2-细节说明"><span class="nav-number">3.6.2.</span> <span class="nav-text">6.16.2 细节说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-17-匿名函数"><span class="nav-number">3.7.</span> <span class="nav-text">6.17 匿名函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-17-2-匿名函数使用方式1"><span class="nav-number">3.7.1.</span> <span class="nav-text">6.17.2 匿名函数使用方式1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-17-3-匿名函数使用方式2"><span class="nav-number">3.7.2.</span> <span class="nav-text">6.17.3 匿名函数使用方式2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-17-3-全局匿名函数"><span class="nav-number">3.7.3.</span> <span class="nav-text">6.17.3 全局匿名函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-18-闭包"><span class="nav-number">3.8.</span> <span class="nav-text">6.18 闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-18-1-介绍"><span class="nav-number">3.8.1.</span> <span class="nav-text">6.18.1 介绍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-19-函数的defer"><span class="nav-number">3.9.</span> <span class="nav-text">6.19 函数的defer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-19-1-快速入门案例"><span class="nav-number">3.9.1.</span> <span class="nav-text">6.19.1 快速入门案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-19-2-defer的细节说明"><span class="nav-number">3.9.2.</span> <span class="nav-text">6.19.2 defer的细节说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-19-3-defer的最佳实践"><span class="nav-number">3.9.3.</span> <span class="nav-text">6.19.3 defer的最佳实践</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-20-值传递和引用传递"><span class="nav-number">3.10.</span> <span class="nav-text">6.20 值传递和引用传递</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-20-3-值类型和引用类型的分类"><span class="nav-number">3.10.1.</span> <span class="nav-text">6.20.3 值类型和引用类型的分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-21-变量作用域"><span class="nav-number">3.11.</span> <span class="nav-text">6.21 变量作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-23-字符串中常用的系统函数"><span class="nav-number">3.12.</span> <span class="nav-text">6.23 字符串中常用的系统函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-24-时间和日期相关的函数"><span class="nav-number">3.13.</span> <span class="nav-text">6.24 时间和日期相关的函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-24-1-基本的介绍"><span class="nav-number">3.13.1.</span> <span class="nav-text">6.24.1 基本的介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-24-2-编写一段代码来统计函数test03-执行的时间"><span class="nav-number">3.13.2.</span> <span class="nav-text">6.24.2 编写一段代码来统计函数test03()执行的时间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-25-内置函数"><span class="nav-number">3.14.</span> <span class="nav-text">6.25 内置函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-26-错误处理"><span class="nav-number">3.15.</span> <span class="nav-text">6.26 错误处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-26-3-使用defer加recover的形式来处理错误"><span class="nav-number">3.15.1.</span> <span class="nav-text">6.26.3 使用defer加recover的形式来处理错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-26-4-自定义错误"><span class="nav-number">3.15.2.</span> <span class="nav-text">6.26.4 自定义错误</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#7-数组与切片"><span class="nav-number">4.</span> <span class="nav-text">7 数组与切片</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-数组"><span class="nav-number">4.1.</span> <span class="nav-text">7.1 数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-使用示例"><span class="nav-number">4.2.</span> <span class="nav-text">7.2 使用示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-1-四种初始化数组的方法"><span class="nav-number">4.2.1.</span> <span class="nav-text">7.2.1 四种初始化数组的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-数组的遍历"><span class="nav-number">4.3.</span> <span class="nav-text">7.3 数组的遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-2-for-range遍历"><span class="nav-number">4.3.1.</span> <span class="nav-text">7.3.2 for-range遍历</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-7-数组使用的注意事项和细节"><span class="nav-number">4.4.</span> <span class="nav-text">7.7 数组使用的注意事项和细节</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-8-数组应用案例"><span class="nav-number">4.4.1.</span> <span class="nav-text">7.8 数组应用案例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-9-切片"><span class="nav-number">4.5.</span> <span class="nav-text">7.9 切片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-9-1-切片的基本介绍"><span class="nav-number">4.5.1.</span> <span class="nav-text">7.9.1 切片的基本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-9-2-切片的使用示例"><span class="nav-number">4.5.2.</span> <span class="nav-text">7.9.2 切片的使用示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-12-切片在内存中形式"><span class="nav-number">4.6.</span> <span class="nav-text">7.12 切片在内存中形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-13-切片的使用方式"><span class="nav-number">4.7.</span> <span class="nav-text">7.13 切片的使用方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方式1"><span class="nav-number">4.7.1.</span> <span class="nav-text">方式1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方式2"><span class="nav-number">4.7.2.</span> <span class="nav-text">方式2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方式3"><span class="nav-number">4.7.3.</span> <span class="nav-text">方式3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方式1与方式2的区别"><span class="nav-number">4.7.4.</span> <span class="nav-text">方式1与方式2的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-14-切片的遍历"><span class="nav-number">4.8.</span> <span class="nav-text">7.14 切片的遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#for循环实现切片遍历"><span class="nav-number">4.8.1.</span> <span class="nav-text">for循环实现切片遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for-range方式实现切片遍历"><span class="nav-number">4.8.2.</span> <span class="nav-text">for-range方式实现切片遍历</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-15-切片注意事项和细节说明"><span class="nav-number">4.9.</span> <span class="nav-text">7.15 切片注意事项和细节说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-16string和slice"><span class="nav-number">4.10.</span> <span class="nav-text">7.16string和slice</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-排序和查找"><span class="nav-number">5.</span> <span class="nav-text">8 排序和查找</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-排序的介绍"><span class="nav-number">5.1.</span> <span class="nav-text">8.1 排序的介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-1-内部排序"><span class="nav-number">5.1.1.</span> <span class="nav-text">8.1.1 内部排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-2-外部排序"><span class="nav-number">5.1.2.</span> <span class="nav-text">8.1.2 外部排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-冒泡排序的思路分析"><span class="nav-number">5.2.</span> <span class="nav-text">8.2 冒泡排序的思路分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-查找"><span class="nav-number">5.3.</span> <span class="nav-text">8.3 查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-4-二维数组的介绍"><span class="nav-number">5.4.</span> <span class="nav-text">8.4 二维数组的介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-4-1-二维数组的遍历"><span class="nav-number">5.4.1.</span> <span class="nav-text">8.4.1 二维数组的遍历</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-map"><span class="nav-number">6.</span> <span class="nav-text">9 map</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#9-1-map的基本介绍"><span class="nav-number">6.1.</span> <span class="nav-text">9.1 map的基本介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-2-map的声明"><span class="nav-number">6.2.</span> <span class="nav-text">9.2 map的声明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-1-基本语法"><span class="nav-number">6.2.1.</span> <span class="nav-text">9.2.1 基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-2-map声明的示例"><span class="nav-number">6.2.2.</span> <span class="nav-text">9.2.2 map声明的示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-3-map的使用方式"><span class="nav-number">6.2.3.</span> <span class="nav-text">9.2.3 map的使用方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-4-使用示例"><span class="nav-number">6.2.4.</span> <span class="nav-text">9.2.4 使用示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-3-map的增删改查操作"><span class="nav-number">6.3.</span> <span class="nav-text">9.3 map的增删改查操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-1-map增加和更新"><span class="nav-number">6.3.1.</span> <span class="nav-text">9.3.1 map增加和更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-2-map的删除"><span class="nav-number">6.3.2.</span> <span class="nav-text">9.3.2 map的删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-3-map的查找"><span class="nav-number">6.3.3.</span> <span class="nav-text">9.3.3 map的查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-4-map的遍历"><span class="nav-number">6.3.4.</span> <span class="nav-text">9.3.4 map的遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-5-map的长度"><span class="nav-number">6.3.5.</span> <span class="nav-text">9.3.5 map的长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-6-map切片"><span class="nav-number">6.3.6.</span> <span class="nav-text">9.3.6 map切片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-7-map排序"><span class="nav-number">6.3.7.</span> <span class="nav-text">9.3.7 map排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-8-map的使用细节"><span class="nav-number">6.3.8.</span> <span class="nav-text">9.3.8 map的使用细节</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-面向对象编程（上）"><span class="nav-number">7.</span> <span class="nav-text">10 面向对象编程（上）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#10-1-结构体"><span class="nav-number">7.1.</span> <span class="nav-text">10.1 结构体</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-1-如何声明结构体"><span class="nav-number">7.1.1.</span> <span class="nav-text">10.1.1 如何声明结构体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-2-创建结构体的四种方法"><span class="nav-number">7.1.2.</span> <span class="nav-text">10.1.2 创建结构体的四种方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-3-结构体内存分配机制"><span class="nav-number">7.1.3.</span> <span class="nav-text">10.1.3 结构体内存分配机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-4-结构体使用注意事项和细节操作"><span class="nav-number">7.1.4.</span> <span class="nav-text">10.1.4 结构体使用注意事项和细节操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-2-方法"><span class="nav-number">7.2.</span> <span class="nav-text">10.2 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-1-方法使用细节"><span class="nav-number">7.2.1.</span> <span class="nav-text">10.2.1 方法使用细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-2-方法与函数的区别"><span class="nav-number">7.2.2.</span> <span class="nav-text">10.2.2 方法与函数的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-3-创建结构体变量时指定字段值"><span class="nav-number">7.2.3.</span> <span class="nav-text">10.2.3 创建结构体变量时指定字段值 **</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-4-工厂模式"><span class="nav-number">7.2.4.</span> <span class="nav-text">10.2.4 工厂模式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-面向对象编程（下）"><span class="nav-number">8.</span> <span class="nav-text">11 面向对象编程（下）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-3-面向对象编程三大特性"><span class="nav-number">8.1.</span> <span class="nav-text">11.3 面向对象编程三大特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-3-1-基本介绍"><span class="nav-number">8.1.1.</span> <span class="nav-text">11.3.1 基本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-3-2-封装介绍"><span class="nav-number">8.1.2.</span> <span class="nav-text">11.3.2 封装介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-3-3-封装的理解和好处"><span class="nav-number">8.1.3.</span> <span class="nav-text">11.3.3 封装的理解和好处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-3-4-如何体现封装"><span class="nav-number">8.1.4.</span> <span class="nav-text">11.3.4 如何体现封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-3-5-封装的实现步骤"><span class="nav-number">8.1.5.</span> <span class="nav-text">11.3.5 封装的实现步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-3-6-嵌套匿名结构体的基本语法"><span class="nav-number">8.1.6.</span> <span class="nav-text">11.3.6 嵌套匿名结构体的基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-3-7-继承的深入讨论"><span class="nav-number">8.1.7.</span> <span class="nav-text">11.3.7 继承的深入讨论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-3-8-多重继承"><span class="nav-number">8.1.8.</span> <span class="nav-text">11.3.8 多重继承</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-5-接口"><span class="nav-number">8.2.</span> <span class="nav-text">11.5 接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-5-1-为什么要有接口？"><span class="nav-number">8.2.1.</span> <span class="nav-text">11.5.1 为什么要有接口？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-5-2-基本介绍"><span class="nav-number">8.2.2.</span> <span class="nav-text">11.5.2 基本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-5-3-基本语法"><span class="nav-number">8.2.3.</span> <span class="nav-text">11.5.3 基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-5-4-接口使用的注意事项和细节"><span class="nav-number">8.2.4.</span> <span class="nav-text">11.5.4 接口使用的注意事项和细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-5-5-接口使用示例"><span class="nav-number">8.2.5.</span> <span class="nav-text">11.5.5 接口使用示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-5-6-接口和继承"><span class="nav-number">8.2.6.</span> <span class="nav-text">11.5.6 接口和继承</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-6-多态"><span class="nav-number">8.3.</span> <span class="nav-text">11.6 多态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-6-1-基本介绍"><span class="nav-number">8.3.1.</span> <span class="nav-text">11.6.1 基本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-6-2-接口体现多态特征"><span class="nav-number">8.3.2.</span> <span class="nav-text">11.6.2 接口体现多态特征</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-7-类型断言"><span class="nav-number">8.4.</span> <span class="nav-text">11.7 类型断言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-7-1-基本介绍"><span class="nav-number">8.4.1.</span> <span class="nav-text">11.7.1 基本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-7-2-类型断言的最佳实践"><span class="nav-number">8.4.2.</span> <span class="nav-text">11.7.2 类型断言的最佳实践</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最佳实践2"><span class="nav-number">8.4.3.</span> <span class="nav-text">最佳实践2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-项目1-家庭收支记账软件项目"><span class="nav-number">9.</span> <span class="nav-text">12 项目1-家庭收支记账软件项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#12-1-项目开发流程说明"><span class="nav-number">9.1.</span> <span class="nav-text">12.1 项目开发流程说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-2-项目需求说明"><span class="nav-number">9.2.</span> <span class="nav-text">12.2 项目需求说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-3-项目的界面"><span class="nav-number">9.3.</span> <span class="nav-text">12.3 项目的界面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-4-项目代码实现1"><span class="nav-number">9.4.</span> <span class="nav-text">12.4 项目代码实现1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#12-4-1-功能1"><span class="nav-number">9.4.1.</span> <span class="nav-text">12.4.1 功能1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-4-2-功能2-完成可以显示明细和登记收入的功能"><span class="nav-number">9.4.2.</span> <span class="nav-text">12.4.2 功能2 完成可以显示明细和登记收入的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-4-2-功能3-完成可以登记支出的功能"><span class="nav-number">9.4.3.</span> <span class="nav-text">12.4.2 功能3 完成可以登记支出的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-4-2-项目代码实现改进"><span class="nav-number">9.4.4.</span> <span class="nav-text">12.4.2 项目代码实现改进</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-项目2-客户信息管理系统"><span class="nav-number">10.</span> <span class="nav-text">13 项目2-客户信息管理系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#13-1-项目需求分析"><span class="nav-number">10.1.</span> <span class="nav-text">13.1 项目需求分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-2-项目的界面设计"><span class="nav-number">10.2.</span> <span class="nav-text">13.2 项目的界面设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-3-程序框架图的设计"><span class="nav-number">10.3.</span> <span class="nav-text">13.3 程序框架图的设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-4-项目功能实现-显示主菜单和完成退出软件功能"><span class="nav-number">10.4.</span> <span class="nav-text">13.4 项目功能实现-显示主菜单和完成退出软件功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-5-项目功能实现-完成显示客户列表的功能"><span class="nav-number">10.5.</span> <span class="nav-text">13.5 项目功能实现-完成显示客户列表的功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-6-项目功能实现-添加客户的功能"><span class="nav-number">10.6.</span> <span class="nav-text">13.6 项目功能实现-添加客户的功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-7-项目功能实现-完成删除客户的功能"><span class="nav-number">10.7.</span> <span class="nav-text">13.7 项目功能实现-完成删除客户的功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-8-项目功能实现-完善退出确认功能"><span class="nav-number">10.8.</span> <span class="nav-text">13.8 项目功能实现-完善退出确认功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-9-项目功能实现-完成修改客户的功能"><span class="nav-number">10.9.</span> <span class="nav-text">13.9 项目功能实现-完成修改客户的功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-10-项目完整代码"><span class="nav-number">10.10.</span> <span class="nav-text">13.10 项目完整代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第14章-文件操作"><span class="nav-number">11.</span> <span class="nav-text">第14章 文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#14-1-文件-基本介绍"><span class="nav-number">11.1.</span> <span class="nav-text">14.1 文件-基本介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-2-常用的文件操作函数和方法"><span class="nav-number">11.2.</span> <span class="nav-text">14.2 常用的文件操作函数和方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-3-读文件操作应用实例"><span class="nav-number">11.3.</span> <span class="nav-text">14.3 读文件操作应用实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-4-写文件操作应用实例"><span class="nav-number">11.4.</span> <span class="nav-text">14.4 写文件操作应用实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#14-4-1-基本介绍"><span class="nav-number">11.4.1.</span> <span class="nav-text">14.4.1 基本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-4-2-基本应用实例-方式一"><span class="nav-number">11.4.2.</span> <span class="nav-text">14.4.2 基本应用实例-方式一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-4-3-基本应用实例-方式二"><span class="nav-number">11.4.3.</span> <span class="nav-text">14.4.3 基本应用实例-方式二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-4-4-判断文件是否存在"><span class="nav-number">11.4.4.</span> <span class="nav-text">14.4.4 判断文件是否存在</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-5-文件编程应用实例"><span class="nav-number">11.5.</span> <span class="nav-text">14.5 文件编程应用实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#14-5-1-拷贝文件"><span class="nav-number">11.5.1.</span> <span class="nav-text">14.5.1 拷贝文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-5-2-统计英文、数字、空格和其他字符"><span class="nav-number">11.5.2.</span> <span class="nav-text">14.5.2 统计英文、数字、空格和其他字符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-6-命令行参数"><span class="nav-number">11.6.</span> <span class="nav-text">14.6 命令行参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#14-6-1-需求"><span class="nav-number">11.6.1.</span> <span class="nav-text">14.6.1 需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-6-2-基本介绍"><span class="nav-number">11.6.2.</span> <span class="nav-text">14.6.2 基本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-6-3-案例"><span class="nav-number">11.6.3.</span> <span class="nav-text">14.6.3 案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-6-4-flag包来解析参数"><span class="nav-number">11.6.4.</span> <span class="nav-text">16.6.4 flag包来解析参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-7-json基本介绍"><span class="nav-number">11.7.</span> <span class="nav-text">14.7 json基本介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#14-7-1-概述"><span class="nav-number">11.7.1.</span> <span class="nav-text">14.7.1 概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-7-2-json的应用场景"><span class="nav-number">11.7.2.</span> <span class="nav-text">14.7.2 json的应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-7-3-jaon数据格式说明"><span class="nav-number">11.7.3.</span> <span class="nav-text">14.7.3 jaon数据格式说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-7-4-json的序列化"><span class="nav-number">11.7.4.</span> <span class="nav-text">14.7.4 json的序列化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-8-json的反序列化"><span class="nav-number">11.8.</span> <span class="nav-text">14.8 json的反序列化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第15章-单元测试"><span class="nav-number">12.</span> <span class="nav-text">第15章 单元测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#15-1-先看一个需求"><span class="nav-number">12.1.</span> <span class="nav-text">15.1 先看一个需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-2-传统的方法"><span class="nav-number">12.2.</span> <span class="nav-text">15.2 传统的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#15-2-1-传统的方式来进行测试"><span class="nav-number">12.2.1.</span> <span class="nav-text">15.2.1 传统的方式来进行测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-2-2-传统方法的缺点分析"><span class="nav-number">12.2.2.</span> <span class="nav-text">15.2.2 传统方法的缺点分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-3-单元测试-基本介绍"><span class="nav-number">12.3.</span> <span class="nav-text">15.3 单元测试-基本介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-4-单元测-快速入门"><span class="nav-number">12.4.</span> <span class="nav-text">15.4 单元测-快速入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#15-4-1-演示如何进行单元测试"><span class="nav-number">12.4.1.</span> <span class="nav-text">15.4.1 演示如何进行单元测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-4-2-单元测试快速入门总结"><span class="nav-number">12.4.2.</span> <span class="nav-text">15.4.2 单元测试快速入门总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第16章-goroutine（协程）和channel（管道）"><span class="nav-number">13.</span> <span class="nav-text">第16章 goroutine（协程）和channel（管道）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#16-1-goroutine-看一个需求"><span class="nav-number">13.1.</span> <span class="nav-text">16.1 goroutine-看一个需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-2-goroutine-基本介绍"><span class="nav-number">13.2.</span> <span class="nav-text">16.2 goroutine-基本介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#16-2-1-进程和线程说明"><span class="nav-number">13.2.1.</span> <span class="nav-text">16.2.1 进程和线程说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-2-2-并发和并行"><span class="nav-number">13.2.2.</span> <span class="nav-text">16.2.2 并发和并行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-2-3-Go协程和Go主线程"><span class="nav-number">13.2.3.</span> <span class="nav-text">16.2.3 Go协程和Go主线程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-3-goroutine快速入门"><span class="nav-number">13.3.</span> <span class="nav-text">16.3 goroutine快速入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#16-3-1-案例说明"><span class="nav-number">13.3.1.</span> <span class="nav-text">16.3.1 案例说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-3-2-快速入门小结"><span class="nav-number">13.3.2.</span> <span class="nav-text">16.3.2 快速入门小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-4-goroutine的调度模型"><span class="nav-number">13.4.</span> <span class="nav-text">16.4 goroutine的调度模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#16-4-1-MPG模式基本介绍"><span class="nav-number">13.4.1.</span> <span class="nav-text">16.4.1 MPG模式基本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-4-2-MPG模式运行的状态1"><span class="nav-number">13.4.2.</span> <span class="nav-text">16.4.2 MPG模式运行的状态1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-4-3-MPG模式运行的状态2"><span class="nav-number">13.4.3.</span> <span class="nav-text">16.4.3 MPG模式运行的状态2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-5-设置Golang如下cpu的个数"><span class="nav-number">13.5.</span> <span class="nav-text">16.5 设置Golang如下cpu的个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-6-channel（管道）-看个需求"><span class="nav-number">13.6.</span> <span class="nav-text">16.6 channel（管道）-看个需求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#16-6-1-channel（管道）-基本介绍"><span class="nav-number">13.6.1.</span> <span class="nav-text">16.6.1 channel（管道）-基本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-6-2-使用全局变量加锁同步改进程序"><span class="nav-number">13.6.2.</span> <span class="nav-text">16.6.2 使用全局变量加锁同步改进程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-6-3-为什么需要channel"><span class="nav-number">13.6.3.</span> <span class="nav-text">16.6.3 为什么需要channel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-6-4-channle的介绍"><span class="nav-number">13.6.4.</span> <span class="nav-text">16.6.4 channle的介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-6-5-定义-声明"><span class="nav-number">13.6.5.</span> <span class="nav-text">16.6.5 定义/声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-6-7-channel使用的注意事项"><span class="nav-number">13.6.6.</span> <span class="nav-text">16.6.7 channel使用的注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-8-channel的遍历和关闭"><span class="nav-number">13.7.</span> <span class="nav-text">16.8 channel的遍历和关闭</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#16-8-1-channel的遍历"><span class="nav-number">13.7.1.</span> <span class="nav-text">16.8.1 channel的遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-8-2-channel的关闭"><span class="nav-number">13.7.2.</span> <span class="nav-text">16.8.2 channel的关闭</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-9-goroutine和channel结合"><span class="nav-number">13.8.</span> <span class="nav-text">16.9 goroutine和channel结合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#16-9-1-应用案例1"><span class="nav-number">13.8.1.</span> <span class="nav-text">16.9.1 应用案例1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-9-2-应用实例2-阻塞"><span class="nav-number">13.8.2.</span> <span class="nav-text">16.9.2 应用实例2-阻塞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-9-3-应用实例3"><span class="nav-number">13.8.3.</span> <span class="nav-text">16.9.3 应用实例3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-10-channel使用细节和注意事项"><span class="nav-number">13.9.</span> <span class="nav-text">16.10 channel使用细节和注意事项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第17章-反射"><span class="nav-number">14.</span> <span class="nav-text">第17章 反射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#17-1-反射的使用场景"><span class="nav-number">14.1.</span> <span class="nav-text">17.1 反射的使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-2-使用反射机制，编写函数的适配器：桥连接"><span class="nav-number">14.2.</span> <span class="nav-text">17.2 使用反射机制，编写函数的适配器：桥连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-3-反射的基本介绍"><span class="nav-number">14.3.</span> <span class="nav-text">17.3 反射的基本介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#17-3-1-基本介绍"><span class="nav-number">14.3.1.</span> <span class="nav-text">17.3.1 基本介绍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-3-2-反射的应用场景"><span class="nav-number">14.4.</span> <span class="nav-text">17.3.2 反射的应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-3-3-反射重要的函数和概念"><span class="nav-number">14.5.</span> <span class="nav-text">17.3.3 反射重要的函数和概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-4-反射的快速入门"><span class="nav-number">14.6.</span> <span class="nav-text">17.4 反射的快速入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#17-4-1-快速入门说明"><span class="nav-number">14.6.1.</span> <span class="nav-text">17.4.1 快速入门说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-5-反射的注意事项和细节"><span class="nav-number">14.7.</span> <span class="nav-text">17.5 反射的注意事项和细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-6-小练习"><span class="nav-number">14.8.</span> <span class="nav-text">17.6 小练习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-7-反射的最佳实践"><span class="nav-number">14.9.</span> <span class="nav-text">17.7 反射的最佳实践</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第18章-TCP编程"><span class="nav-number">15.</span> <span class="nav-text">第18章 TCP编程</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
         
-        <li>
-            <a class="footer-post" href="/categories/博客简介/">博客简介</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/语言学习/">语言学习</a>
-        </li>
-        
-    </ul>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">B1aK2</span>
+
+  
+
+  
 </div>
 
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <ul class="list-inline footer-social-icons">
-                    
-                    <li class="list-inline-item">
-                        <a href="https://github.com/klugjo/hexo-theme-alpha-dust">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-github"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="https://twitter.com/?lang=en">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-twitter"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="mailto:test@example.com">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-envelope-o"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="\#">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-rss"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="footer-copyright">
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
 
-<!-- After footer scripts -->
-
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-
-<!-- Tween Max -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Custom JavaScript -->
-<script src="/js/main.js"></script>
-
-<!-- Disqus Comments -->
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
 
 
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
 </body>
-
 </html>
